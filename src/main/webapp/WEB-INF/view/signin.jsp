@@ -7,7 +7,7 @@
 
 	<head>
 		<title>event</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="static/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<style type="text/css">
 		#container {
@@ -118,7 +118,7 @@
 					if(res.success){
 						//console.log("???")
 						alert("注册成功，点击确定跳转至登录页面！");
-						window.location.href="${ctx}/login";
+						window.location.href="Demo/portal/login";
 					}else{
 						document.getElementById("warning").textContent="注册失败，已经存在该用户！";
 						$("#warning").stop().fadeIn().fadeOut(2000);

@@ -36,7 +36,7 @@
 			}
 		</style>
 		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="${ctx}/static/css/bootstrap.min.css" rel="stylesheet">
 
 		<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
 		<!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
@@ -67,11 +67,11 @@
 						<div class="collapse navbar-collapse navbar-responsive-collapse row" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav col-md-6">
 								<li>
-									<c:url value="/page1" var="page1Url" />
+									<c:url value="/portal/page1" var="page1Url" />
 									<a href="${page1Url}">首页</a>
 								</li>
 								<li>
-									<c:url value="/page2" var="page2Url" />
+									<c:url value="/portal/page2" var="page2Url" />
 									<a href="${page2Url}">美食</a>
 								</li>
 								<li  class="active">
@@ -105,7 +105,7 @@
 				<p><strong>活动地点:</strong>上海市徐汇区桃红路8号</p>
 				<p>学习制作，佤乡辣子鱼，石屏香煎包浆豆腐，演示，香辣野生牛杆菌，品尝、石林鸡丝凉米线...</p>
 				<hr />
-				<img src="images/yunnan01.jpg" style="width: 100%;"/>
+				<img src="${ctx}/static/images/yunnan01.jpg" style="width: 100%;"/>
 				<div class="btnContent">
 					<button type="button" class="btn btn-default">点击预约</button>	
 				</div>
@@ -127,7 +127,7 @@
 		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 		<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 		<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="${ctx}/static/js/bootstrap.min.js"></script>
 	</body>
 
 </html>

@@ -4,6 +4,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html lang="zh-CN">
 
 	<head>
@@ -59,7 +60,7 @@
 			}
 		</style>
 		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="${ctx}/static/css/bootstrap.min.css" rel="stylesheet">
 
 		<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
 		<!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
@@ -90,15 +91,15 @@
 						<div class="collapse navbar-collapse navbar-responsive-collapse row" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav col-md-6">
 								<li>
-									<c:url value="/page1" var="page1Url" />
+									<c:url value="/portal/page1" var="page1Url" />
 									<a href="${page1Url}">首页</a>
 								</li>
 								<li>
-									<c:url value="/page2" var="page2Url" />
+									<c:url value="/portal/page2" var="page2Url" />
 									<a href="${page2Url}">美食</a>
 								</li>
 								<li>
-									<c:url value="/page3" var="page3Url" />
+									<c:url value="/portal/page3" var="page3Url" />
 									<a href="${page3Url}">活动</a>
 								</li>
 								<li>
@@ -107,7 +108,7 @@
 							</ul>
 							<ul class="nav navbar-nav col-md-4 col-md-offset-2">
 								<li>
-									<c:url value="/page1" var="page1Url" />
+									<c:url value="/portal/page1" var="page1Url" />
 									<a href="${page1Url}">退出</a>
 								</li>
 							</ul>
@@ -173,7 +174,7 @@
 		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 		<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 		<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="${ctx}/static/js/bootstrap.min.js"></script>
 	</body>
 	<script>
 		document.querySelectorAll(".menuItem").forEach(function(item,index,arr){

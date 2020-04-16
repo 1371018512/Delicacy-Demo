@@ -27,7 +27,7 @@
 			}
 		</style>
 		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="${ctx }/static/css/bootstrap.min.css" rel="stylesheet">
 
 		<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
 		<!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
@@ -61,25 +61,26 @@
 									<a href="#">首页</a>
 								</li>
 								<li>
-									<c:url value="/page2" var="page2Url" />
+									<c:url value="/portal/page2" var="page2Url" />
 									<a href="${page2Url}">美食</a>
 								</li>
 								<li>
-									<c:url value="/page3" var="page3Url" />
+									<c:url value="/portal/page3" var="page3Url" />
 									<a href="${page3Url}">活动</a>
 								</li>
 								<li>
 									<a href="#">关于</a>
 								</li>
 							</ul>
-							<ul class="nav navbar-nav col-md-4 col-md-offset-2">
+							<jsp:directive.include file="layout/userinfo.jsp"/>
+							<!--<ul class="nav navbar-nav col-md-4 col-md-offset-2">
 								<li>								
 									<a href="${ctx}/login">登录</a>
 								</li>
 								<li>
 									<a href="${ctx}/signin">注册</a>
 								</li>
-							</ul>
+							</ul>-->
 						</div>
 
 						<!-- /.navbar-collapse -->
@@ -99,7 +100,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active" style="height: 500px;">
-					<img src="images/fstp01.jpg" alt="picture1" style="width: 100%;">
+					<img src="${ctx}/static/images/fstp01.jpg" alt="picture1" style="width: 100%;">
 					<div class="carousel-caption">
 						<h1>法式苹果塔</h1>
 						<button class="btn btn-primary" type="button">查看详情</button>
@@ -107,7 +108,7 @@
 					</div>
 				</div>
 				<div class="item" style="height: 500px;">
-					<img src="images/fstp02.jpg" alt="picture2" style="width: 100%;">
+					<img src="${ctx}/static/images/fstp02.jpg" alt="picture2" style="width: 100%;">
 					<div class="carousel-caption">
 						<h1>奶油泡芙</h1>
 						<button class="btn btn-primary" type="button">查看详情</button>
@@ -115,7 +116,7 @@
 					</div>
 				</div>
 				<div class="item" style="height: 500px;">
-					<img src="images/yunnan02.jpg" alt="picture1" style="width: 100%;">
+					<img src="${ctx}/static/images/yunnan02.jpg" alt="picture1" style="width: 100%;">
 					<div class="carousel-caption">
 						<h1>剁椒烤鱼</h1>
 						<button class="btn btn-primary" type="button">查看详情</button>
@@ -135,9 +136,9 @@
 		</div>
 		<div class="row" style="margin-top:30px ;" id="box">
 			<div class="col-md-2 col-md-offset-2" style="text-align: center;">
-				<c:url value="/page2" var="page2Url" />
+				<c:url value="/portal/page2" var="page2Url" />
 				<a href="${page2Url}">
-					<img src="images/meishi.png" />
+					<img src="${ctx}/static/images/meishi.png" />
 					<h1>美食</h1>
 					<h4>
 			      		体验极致烹饪。
@@ -146,9 +147,9 @@
 				<br /><br />
 			</div>
 			<div class="col-md-2 col-md-offset-1" style="text-align: center;">
-				<c:url value="/page3" var="page3Url" />
+				<c:url value="/portal/page3" var="page3Url" />
 				<a href="${page3Url}">
-					<img src="images/huodong.png" />
+					<img src="${ctx}/static/images/huodong.png" />
 					<h1>活动</h1>
 					<h4>
 			      		我们号召城中所有的美食达人，辣妈主播，烘焙大师，城市OL等民间高手，爱好生活、美食的伙伴都将聚于此。
@@ -159,7 +160,7 @@
 			<div class="col-md-2 col-md-offset-1" style="text-align: center;">
 				<c:url value="/page4" var="page4Url" />
 				<a href="${page4Url}">
-					<img src="images/wode.png" />
+					<img src="${ctx}/static/images/wode.png" />
 					<h1>我的</h1>
 					<h4>
 			      		更多个人信息管理
@@ -184,7 +185,7 @@
 		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 		<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 		<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="${ctx}/static/js/bootstrap.min.js"></script>
 	</body>
 	<script>
 		document.getElementById("backToTop").addEventListener("click",function(e){
