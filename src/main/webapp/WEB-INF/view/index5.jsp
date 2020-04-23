@@ -58,6 +58,11 @@
 				max-width: 100px;
 				max-height: 100px;
 			}
+			#submit{
+				position:absolute;
+				left:50%;
+				transform:translateX(-50%)
+			}
 		</style>
 		<!-- Bootstrap -->
 		<link href="${ctx}/static/css/bootstrap.min.css" rel="stylesheet">
@@ -143,31 +148,32 @@
 				  <div class="form-group">
 				    <label for="name" class="col-sm-2 control-label">美食名称</label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="name" placeholder="请输入美食名称">
+				      <input type="text" class="form-control" id="name" placeholder="请输入美食名称" required>
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="picture" class="col-sm-2 control-label">上传照片</label>
 				    <div class="col-sm-8">
-				      <input type="file" id="picture">
+				      <input type="file" id="picture" required>
 				      <img id="myImage" src="">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="material" class="col-sm-2 control-label">材料</label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="material" placeholder="请输入材料">
+				      <input required type="text" class="form-control" id="material" placeholder="请输入材料">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="count" class="col-sm-2 control-label">步骤数</label>
 				    <div class="col-sm-8">
-				      <input type="number" onfocus="this.blur();" min="1" max="5" step="1" class="form-control" id="count" placeholder="请输入步骤数" oninput="value=value.replace(/[^\d]/g,'')">
+				      <input required type="number" onfocus="this.blur();" min="1" max="5" step="1" class="form-control" id="count" placeholder="请输入步骤数" oninput="value=value.replace(/[^\d]/g,'')">
 				    </div>
 				    <div class="col-sm-2">
 				      <button type="button" class="btn btn-success" name="affirm" onclick="check()">确定</button>
 				    </div>
 				  </div>
+				  <button id="submit" type="submit" class="btn btn-primary">提交</button>
 				</form>
 			</div>
 		</div>
@@ -187,11 +193,19 @@
 			})
 		})
 		document.documentElement.addEventListener("change",function(e){
+			//console.log(e.target);
 			if(e.target.type=="file"){
 				var img=e.target.nextElementSibling;
 				var fileDom=e.target;
 				var reader=new FileReader();
-				console.log(reader);
+				//console.log(fileDom.files[0].type.match(/image/));
+				if(!fileDom.files[0].type.match(/image/)){
+					alert("请添加图片格式文件！");
+					return;
+				}else if(fileDom.files[0].size>2*1024*1024){
+					alert("上传图片大于2M，请重新上传！");
+					return;
+				}
 				reader.readAsDataURL(fileDom.files[0]);				
 				reader.onload=function(){
 					img.setAttribute("src",reader.result);
@@ -206,6 +220,7 @@
 			}
 			var form=document.getElementsByTagName("form")[0];
 			var eles=document.getElementsByClassName('step');
+			var submit=document.getElementById("submit");
 			for(var i = eles.length - 1; i >= 0; i--) {
 			    eles[i].parentNode.removeChild(eles[i]);
 			}
@@ -220,19 +235,21 @@
 					el1.innerHTML=
 					    "<label for=\"step"+(i+1)+"\" class=\"col-sm-2 control-label\">步骤"+(i+1)+"</label>"+
 					    "<div class=\"col-sm-8\">"+
-					      "<input type=\"text\" class=\"form-control\" id=\"step"+(i+1)+"\" placeholder=\"请输入美食名称\">"+
+					      "<input required name=\"file\" type=\"text\" class=\"form-control\" id=\"step"+(i+1)+"\" placeholder=\"请输入具体操作\">"+
 					    "</div>";
-					form.appendChild(el1);
+					//form.appendChild(el1);
+					submit.before(el1);
 					var el2=document.createElement("div");
 					el2.classList.add("form-group");
 					el2.classList.add("step");
 					el2.innerHTML=
 					    "<label for=\"picture\" class=\"col-sm-2 control-label\">上传照片</label>"+
 					   	"<div class=\"col-sm-8\">"+
-					      "<input type=\"file\" id=\"picture\">"+
+					      "<input required type=\"file\" id=\"picture\">"+
 					      "<img id=\"myImage\" src=\"\">"+
 					    "</div>"
-					form.appendChild(el2);
+					submit.before(el2);
+					//form.appendChild(el2);
 				}
 			}
 		}

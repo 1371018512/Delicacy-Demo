@@ -8,11 +8,11 @@
 		$.get("${ctx}/portal/getCurrentUser",function(data){
 			curUser=data;
 			if(curUser!=null&&curUser!=undefined){
-				$("#userInfoLi").html('<a href="Demo/manage">'+curUser.loginName+'</a>');
-				$("#userOperationLi").html('<a href="Demo/logout">注销</a>');
+				$("#userInfoLi").html('<a href="${ctx}/page4">'+curUser.loginName+'</a>');
+				$("#userOperationLi").html('<a href="${ctx}/logout">注销</a>');
 			}else{
-				$("#userInfoLi").html('<a href="Demo/login">登录</a>');
-				$("#userOperationLi").html('<a href="Demo/signin">注册</a>');
+				$("#userInfoLi").html('<a href="${ctx}/login">登录</a>');
+				$("#userOperationLi").html('<a href="${ctx}/login">注册</a>');
 			}
 		},"json");
 	});

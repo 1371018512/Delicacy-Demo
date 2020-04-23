@@ -81,14 +81,7 @@
 									<a href="#">关于</a>
 								</li>
 							</ul>
-							<ul class="nav navbar-nav col-md-4 col-md-offset-2">
-								<li>
-									<a href="${ctx}/login">登录</a>
-								</li>
-								<li>
-									<a href="${ctx}/signin">注册</a>
-								</li>
-							</ul>
+							<jsp:directive.include file="layout/userinfo.jsp"/>
 						</div>
 						<!-- /.navbar-collapse -->
 					</div>
